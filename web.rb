@@ -1,5 +1,6 @@
 require 'sinatra'
 
 get '/' do
-	"hello, world"
+	File.read(File.join('public', 'index.html'))
 end
+
