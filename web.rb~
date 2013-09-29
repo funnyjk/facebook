@@ -1,6 +1,0 @@
-require 'sinatra'
-puts "hello"
-get '/' do
-	File.read(File.join('public', 'index.html'))
-return "hello"
-end
