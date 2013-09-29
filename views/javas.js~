@@ -1,4 +1,4 @@
-var $img = $('http://thecatapi.com/api/images/get?format=xml&results_per_page=20'),
+var $img = $('http://eofdreams.com/data_images/dreams/cat/cat-07.jpg'),
     imageWidth = $img[0].width, //need the raw width due to a jquery bug that affects chrome
     imageHeight = $img[0].height, //need the raw height due to a jquery bug that affects chrome
     maxWidth = $(window).width(),
