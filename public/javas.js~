@@ -1,33 +1,18 @@
-  window.fbAsyncInit = function() {
-    // init the FB JS SDK
-    FB.init({
-      appId      : '235591073245516',                        // App ID from the app dashboard
-      channelUrl : 'http://whispering-island-6434.herokuapp.com/channel.html', // Channel file for x-domain comms
-      status     : true,                                 // Check Facebook Login status
-      xfbml      : true                                  // Look for social plugins on the page
-    });
-
-    // Additional initialization code such as adding Event Listeners goes here
-  };
-
-  // Load the SDK asynchronously
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "//connect.facebook.net/en_US/all.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
-FB.login(function(response) {
-   if (response.authResponse) {
-     console.log('Welcome!  Fetching your information.... ');
-     FB.api('/me', function(response) {
-       console.log('Good to see you, ' + response.name + '.');
-     });
-   } else {
-     console.log('User cancelled login or did not fully authorize.');
-   }
+FB.getLoginStatus(function(response) {
+  if (response.status === 'connected') {
+    // the user is logged in and has authenticated your
+    // app, and response.authResponse supplies
+    // the user's ID, a valid access token, a signed
+    // request, and the time the access token 
+    // and signed request each expire
+    var uid = response.authResponse.userID;
+    var accessToken = response.authResponse.accessToken;
+document.write(accessToken)
+  } else if (response.status === 'not_authorized') {
+    // the user is logged in to Facebook, 
+    // but has not authenticated your app
+  } else {
+    // the user isn't logged in to Facebook.
+  }
  });
-FB.api('/me', function(response) {
-  consol.log(response.name);
-});
+alert("hello")
