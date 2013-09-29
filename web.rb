@@ -1,1 +1,5 @@
-print "hello world"
+require 'sinatra'
+
+get '/' do
+"hello, world"
+end
